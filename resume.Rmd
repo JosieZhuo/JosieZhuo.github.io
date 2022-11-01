@@ -1,12 +1,60 @@
 ---
-title: "My awesome website"
+title: "Resume"
 output: 
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+    theme: journal
 ---
 
-# This is Jeff's awesome website
+### Education 
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+#### Mailman School of Public Health, Columbia University, NY   	
+
+**Master of Science in Biostatistics**
+
+Duration: September 2022-May 2024
+
+#### College of Agricultural and Life Sciences, Cornell University, NY   	
+
+**Bachelor of Science in Biometry and Statistics**
+
+Duration: September 2018-May 2022
+
+### Academic Projects
+
+#### Machine Learning in Analysis of the Revenue
+*- Applied supervised machine learning to prediction of online business revenue over 12,331 cases and 18 variables*\
+*- Conducted data cleaning, visualization, algorithm and feature selection using R; created report using R Markdown*\
+*- Built Random Forest model to predict revenue of online business with accuracy of 0.90*
+
+Duration: March 2021-May 2021
+
+#### Covid Simulateion
+*- Established SEIR model of disease progress and simulated Covid transmission patterns using R*\
+*- Calculated Covid spreading speed and predicted number of infectious cases on campus of Spring 2020 semester*\
+*- Computed infectious rate and recovery speed; tested the effectiveness of Cornell’s surveillance program *
+
+Duration: April 2021-May 2021
+
+### Reserach Experience
+
+#### Microbial Alternation and Caries Outcome after Intensive Fluoride Varnish Treatment
+
+**Advisor: Prof. Yihong Li, Cornell University**
+
+*- Verified accuracy and completeness of microbial dataset over 75 pediatric patients and 768 DNA sequences*\
+*- Performed data visualization and model selection, tested significance level of microbiota difference across time*\
+*- Drew the conclusion that Intensive FV Treatment is ineffective to prevent children caries relapse because no significant difference in caries scores is detected between FV Treatment and control group*
+
+Duration: August 2021-May 2022
+
+#### Chromatin Dynamics in the Regulation of Mammalian Embryonic Development
+
+**Advisor: Prof. Yuwen Ke, China Agricultural University**
+
+*- Utilized Dam ID and CUT & Tag technologies to analyze epigenetic modification of the H3.3 protein*\
+*- Traced relevant proteins in the nucleus with fluorescent protein method*\
+*- Tested the significance of genomic features using Linux*
+
+Duration: May 2021-August 2021

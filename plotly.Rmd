@@ -26,11 +26,19 @@ inspec_data =
 
 ### scatterplot
 ```{r}
-
 inspec_data %>%
-  filter(grade %in% c("A","B","C")) %>%
-  filter(boro == "BRONX") %>%
+  filter(grade %in% c("A","B","C"), boro == "BRONX",!( cuisine_description == "Not Listed/Not Applicable") ) %>%
+
   mutate(cuisine_description = fct_reorder(cuisine_description,score)) %>%
+  mutate(
+    cuisine_description = as.factor(cuisine_description),
+    cuisine_description = fct_recode(
+      cuisine_description, 
+      "Latin" = "Latin (Cuban, Dominican, Puerto Rican, South & Central American)",
+      "Juice" = "Juice, Smoothies, Fruit Salads" ,
+      "Mixed Buffet" = "Sandwiches/Salads/Mixed Buffet" ,
+      "Beverages" = "Bottled beverages, including water, sodas, juices, etc.")) %>%
+      
   plot_ly(
     x = ~cuisine_description, y = ~score, 
     color = ~grade , alpha = 0.5,

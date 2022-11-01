@@ -20,7 +20,7 @@ data("rest_inspec")
 inspec_data = 
   rest_inspec %>%
   janitor::clean_names() %>%
-  select(boro, zipcode, street, cuisine_description, grade, score) %>%
+  select(boro, zipcode, street, cuisine_description, grade, score, grade_date) %>%
   drop_na(score)
 ```
 
@@ -29,12 +29,40 @@ inspec_data =
 
 inspec_data %>%
   filter(grade %in% c("A","B","C")) %>%
-  mutate(text_label = str_c("Cuisine Type:", cuisine_description )) %>%
+  filter(boro == "BRONX") %>%
+  mutate(cuisine_description = fct_reorder(cuisine_description,score)) %>%
   plot_ly(
-    x = ~grade, y = ~score, 
-    color = ~boro , alpha = 0.5,
-    type = "scatter", mod
-    text = ~text_label
+    x = ~cuisine_description, y = ~score, 
+    color = ~grade , alpha = 0.5,
+    type = "scatter", mode = "markers", colors = "viridis"
   )
 ```
+The scatter plot shows the relationship between cuisine type and score in Bronx area.
 
+### boxplot
+```{r}
+
+inspec_data %>%
+  filter(zipcode == "10001") %>%
+  mutate(street = fct_reorder(street, score)) %>%
+  plot_ly(x = ~street, y = ~score,
+          type = "box", color = ~street,
+          colors = "viridis")
+```
+The boxplot shows the score distribution of restaurants in area where zipcode is 10001.
+
+### histogram
+```{r}
+inspec_data %>%
+  filter(grade %in% c("A", "B", "C"), !(boro == "Missing")) %>%
+  mutate(
+    boro = as.factor(boro),
+    grade = as.factor(grade)
+  ) %>% 
+  group_by(boro, grade) %>% 
+  count(boro, grade) %>% 
+  plot_ly(
+    x = ~boro, y = ~n, color = ~grade, type = "bar", colors = "viridis"
+  )  
+```
+This histogram shows the distribution of grade in each boro.

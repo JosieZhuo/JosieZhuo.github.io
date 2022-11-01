@@ -1,12 +1,40 @@
 ---
-title: "My awesome website"
+title: "plotly"
 output: 
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+    theme: journal
 ---
 
-# This is Jeff's awesome website
+### Let's look at NYC Restaruant Inspection dataset
+```{r, include = FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+### Load, clean and filter the dataset
+```{r}
+data("rest_inspec")
+inspec_data = 
+  rest_inspec %>%
+  janitor::clean_names() %>%
+  select(boro, zipcode, street, cuisine_description, grade, score) %>%
+  drop_na(score)
+```
+
+### scatterplot
+```{r}
+
+inspec_data %>%
+  filter(grade %in% c("A","B","C")) %>%
+  mutate(text_label = str_c("Cuisine Type:", cuisine_description )) %>%
+  plot_ly(
+    x = ~grade, y = ~score, 
+    color = ~boro , alpha = 0.5,
+    type = "scatter", mod
+    text = ~text_label
+  )
+```
+

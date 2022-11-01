@@ -1,12 +1,11 @@
 ---
-title: "My awesome website"
+title: "My Personal Website"
 output: 
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+    theme: journal
 ---
 
-# This is Jeff's awesome website
-
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+# Welcom to Josie's Awesome Website
+![](https://thumbs.dreamstime.com/z/epidemiology-as-health-disease-spread-pandemic-prevention-outline-concept-epidemiology-as-health-disease-spread-pandemic-196100244.jpg)

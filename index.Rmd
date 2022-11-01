@@ -7,13 +7,10 @@ output:
     theme: journal
 ---
 
-### Welcom to Josie's Awesome Website
-![](https://www.biopharmaservices.com/wp-content/uploads/2021/12/stock-vector-biostatistics-flat-tiny-person-concept-vector-illustration-study-of-development-and-application.jpeg)
+## Introduction
 
-### Introduction
+Hi! My name is Qingyue Zhuo (Josie), a first year Master student at [Columbia University](https://www.columbia.edu/), [Mailman School of Public Health](http://www.publichealth.columbia.edu/), majoring in [Biostatistics](http://www.publichealth.columbia.edu/academics/departments/biostatistics). As a data driven person, I'm willing to apply my knowledge and skills in data analysis to real-world problems, and provide better solutions to public heath issues globally.
 
-Hi! My name is Qingyue Zhuo (Josie), a first year Master student at [Columbia University](https://www.columbia.edu/), [Mailman School of Public Health](http://www.publichealth.columbia.edu/), majoring in [Biostatistics](http://www.publichealth.columbia.edu/academics/departments/biostatistics). 
-
-### Resume
+## Resume
 
 If you want to know more about me, here is my [resume](resume.html)!

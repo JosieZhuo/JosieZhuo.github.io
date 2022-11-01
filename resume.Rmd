@@ -21,6 +21,8 @@ Duration: September 2022-May 2024
 
 Duration: September 2018-May 2022
 
+
+
 ### Academic Projects
 
 #### Machine Learning in Analysis of the Revenue
@@ -36,6 +38,8 @@ Duration: March 2021-May 2021
 *- Computed infectious rate and recovery speed; tested the effectiveness of Cornell’s surveillance program *
 
 Duration: April 2021-May 2021
+
+
 
 ### Reserach Experience
 
@@ -58,3 +62,10 @@ Duration: August 2021-May 2022
 *- Tested the significance of genomic features using Linux*
 
 Duration: May 2021-August 2021
+
+
+### Skills and Qualifications
+
+**Computer Programming:** Python, R\
+**Data Manipulation:**  NumPy, Pandas, Matplotlib, Seaborn, Ggplot\
+**Machine Learning:**  Random Forests, Neural Networks, Scikit-learn, Decision Trees, Boosting and Bagging

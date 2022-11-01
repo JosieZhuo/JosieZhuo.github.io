@@ -1,12 +1,85 @@
 ---
-title: "My awesome website"
+title: "dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
-    theme: cerulean
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
 ---
 
-# This is Jeff's awesome website
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+```{r}
+data("rest_inspec")
+inspec_data = 
+  rest_inspec %>%
+  janitor::clean_names() %>%
+  select(boro, zipcode, street, cuisine_description, grade, score, grade_date) %>%
+  drop_na(score)
+```
+
+Column {data-width=550}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+inspec_data %>%
+  filter(grade %in% c("A","B","C"), boro == "BRONX",!( cuisine_description == "Not Listed/Not Applicable") ) %>%
+
+  mutate(cuisine_description = fct_reorder(cuisine_description,score)) %>%
+  mutate(
+    cuisine_description = as.factor(cuisine_description),
+    cuisine_description = fct_recode(
+      cuisine_description, 
+      "Latin" = "Latin (Cuban, Dominican, Puerto Rican, South & Central American)",
+      "Juice" = "Juice, Smoothies, Fruit Salads" ,
+      "Mixed Buffet" = "Sandwiches/Salads/Mixed Buffet" ,
+      "Beverages" = "Bottled beverages, including water, sodas, juices, etc.")) %>%
+      
+  plot_ly(
+    x = ~cuisine_description, y = ~score, 
+    color = ~grade , alpha = 0.5,
+    type = "scatter", mode = "markers", colors = "viridis"
+  )
+```
+
+Column {data-width=450}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+inspec_data %>%
+  filter(zipcode == "10001") %>%
+  mutate(street = fct_reorder(street, score)) %>%
+  plot_ly(x = ~street, y = ~score,
+          type = "box", color = ~street,
+          colors = "viridis")
+```
+
+
+### Chart C
+
+```{r}
+inspec_data %>%
+  filter(grade %in% c("A", "B", "C"), !(boro == "Missing")) %>%
+  mutate(
+    boro = as.factor(boro),
+    grade = as.factor(grade)
+  ) %>% 
+  group_by(boro, grade) %>% 
+  count(boro, grade) %>% 
+  plot_ly(
+    x = ~boro, y = ~n, color = ~grade, type = "bar", colors = "viridis"
+  )  
+```
+
+

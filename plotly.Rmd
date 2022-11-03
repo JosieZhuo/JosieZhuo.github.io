@@ -51,14 +51,35 @@ The scatter plot shows the relationship between cuisine type and score in Bronx 
 ### boxplot
 ```{r}
 inspec_data %>%
-  filter(zipcode == "10001") %>%
+  filter(zipcode == "10030") %>%
   mutate(street = fct_reorder(street, score)) %>%
+  mutate(
+    street = as.factor(street),
+    street = fct_recode(
+      street, 
+      "WEST 135 STREET" = "W 135TH ST",
+      "WEST 135 STREET" = "W 135 STREET",
+      "WEST 135 STREET" = "WEST  135 STREET",
+      "WEST 139 STREET" = "W 139TH ST",
+      "7 AVENUE" = "7TH AVE",
+      "ADAM CLAYTON POWELL BLVD" = "ADAM CLAYTON POWELL JR BOULEVARD",
+      "ADAM CLAYTON POWELL BLVD" = "ADAM CLAYTON POWELL BOULEVARD",
+      "ADAM CLAYTON POWELL BLVD" = "ADAM CLAYTON POWELL JR B",
+      "ADAM CLAYTON POWELL BLVD" = "ADAM CLAYTON POWELL JR BLVD",
+      "ADAM CLAYTON POWELL BLVD" = "A C POWELL BLVD",
+      "FREDERICK DOUGLASS BLVD" = "FREDERICK DOUGLASS BOULEVARD",
+      "FREDERICK DOUGLASS BLVD" = "FREDERICK DOUGLAS BOULEVARD",
+      "FREDERICK DOUGLASS BLVD" = "FRDERICK DOUGLASS BOULEVARD",
+      "FREDERICK DOUGLASS BLVD" = "FEDERICK DOUGLAS BLVD",
+      "ST NICHOLAS AVENUE" = "ST NICHOLAS AV"
+      
+      )) %>%
   plot_ly(x = ~street, y = ~score,
           type = "box", color = ~street,
           colors = "viridis") %>%
-  layout(title = "Restaurants' Score by Street where Zipcode is 10001")
+  layout(title = "Restaurants' Score by Street where Zipcode is 10030")
 ```
-The boxplot shows the score distribution of restaurants by street in where zip code is 10001.
+The boxplot shows the score distribution of restaurants by street in where zip code is 10030.
 
 ### histogram
 ```{r}

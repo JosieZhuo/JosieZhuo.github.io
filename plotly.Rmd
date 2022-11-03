@@ -43,21 +43,22 @@ inspec_data %>%
     x = ~cuisine_description, y = ~score, 
     color = ~grade , alpha = 0.5,
     type = "scatter", mode = "markers", colors = "viridis"
-  )
+  ) %>%
+  layout(title = "Score of Different Cuisine Type in Bronx")
 ```
 The scatter plot shows the relationship between cuisine type and score in Bronx area.
 
 ### boxplot
 ```{r}
-
 inspec_data %>%
   filter(zipcode == "10001") %>%
   mutate(street = fct_reorder(street, score)) %>%
   plot_ly(x = ~street, y = ~score,
           type = "box", color = ~street,
-          colors = "viridis")
+          colors = "viridis") %>%
+  layout(title = "Restaurants' Score by Street where Zipcode is 10001")
 ```
-The boxplot shows the score distribution of restaurants in area where zipcode is 10001.
+The boxplot shows the score distribution of restaurants by street in where zip code is 10001.
 
 ### histogram
 ```{r}
@@ -71,6 +72,7 @@ inspec_data %>%
   count(boro, grade) %>% 
   plot_ly(
     x = ~boro, y = ~n, color = ~grade, type = "bar", colors = "viridis"
-  )  
+  ) %>%
+  layout(title = "Distribution of Grade by Boro")
 ```
 This histogram shows the distribution of grade in each boro.

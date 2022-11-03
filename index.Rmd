@@ -1,5 +1,5 @@
 ---
-title: "My Personal Website"
+title: " Welcome to Josie's Personal Website"
 output: 
   html_document:
     toc: true
@@ -9,8 +9,18 @@ output:
 
 ## Introduction
 
-Hi! My name is Qingyue Zhuo (Josie), a first year Master student at [Columbia University](https://www.columbia.edu/), [Mailman School of Public Health](http://www.publichealth.columbia.edu/), majoring in [Biostatistics](http://www.publichealth.columbia.edu/academics/departments/biostatistics). As a data driven person, I'm willing to apply my knowledge and skills in data analysis to real-world problems, and provide better solutions to public heath issues globally.
+Hi! My name is Qingyue Zhuo (Josie), a first year Master student at [Columbia University](https://www.columbia.edu/), [Mailman School of Public Health](http://www.publichealth.columbia.edu/), majoring in [Biostatistics](http://www.publichealth.columbia.edu/academics/departments/biostatistics). As a data driven person, I'm willing to apply my knowledge in data manipulation to real-world problems, and provide better solutions to public heath issues.
 
 ## Resume
 
-If you want to know more about me, here is my [resume](resume.html)!
+If you want to know more about my academic experiences, here is my [resume](resume.html)!
+
+## Sample Project
+
+[Here](dashboard.html) is my result of plotly and flexdashboard. I dealt with the `NYC Restaurant Inspection Results`, and focused on the score distribution of restaurants. A simple description on the plots can be obatined [here](plotly.html).
+
+## Hobby
+
+I like photography! I attached a few pictures I took this recently.\
+
+![](Josie_Photos.jpg)

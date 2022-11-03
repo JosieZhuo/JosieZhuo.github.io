@@ -1,5 +1,5 @@
 ---
-title: "plotly"
+title: "Plotly"
 output: 
   html_document:
     toc: true
@@ -8,6 +8,7 @@ output:
 ---
 
 ### Let's look at NYC Restaruant Inspection dataset
+
 ```{r, include = FALSE}
 library(tidyverse)
 library(p8105.datasets)
@@ -20,11 +21,15 @@ data("rest_inspec")
 inspec_data = 
   rest_inspec %>%
   janitor::clean_names() %>%
-  select(boro, zipcode, street, cuisine_description, grade, score, grade_date) %>%
+  select(boro, zipcode, street, cuisine_description, grade, score) %>%
   drop_na(score)
 ```
 
+I selected a subset of the complete dataset for analysis and filtered out observations without "scores". The tidy dataset contains `r nrow(inspec_data)` observations of `r ncol(inspec_data)` variables, the names of variables are `r names(inspec_data)`.
+
 ### scatterplot
+
+The scatter plot shows the relationship between cuisine type and score in Bronx area.
 ```{r}
 inspec_data %>%
   filter(grade %in% c("A","B","C"), boro == "BRONX",!( cuisine_description == "Not Listed/Not Applicable") ) %>%
@@ -46,9 +51,12 @@ inspec_data %>%
   ) %>%
   layout(title = "Score of Different Cuisine Type in Bronx")
 ```
-The scatter plot shows the relationship between cuisine type and score in Bronx area.
+
 
 ### boxplot
+
+The boxplot shows the geographical distribution of scores by street with zipcode 10030.
+
 ```{r}
 inspec_data %>%
   filter(zipcode == "10030") %>%
@@ -79,9 +87,12 @@ inspec_data %>%
           colors = "viridis") %>%
   layout(title = "Restaurants' Score by Street where Zipcode is 10030")
 ```
-The boxplot shows the score distribution of restaurants by street in where zip code is 10030.
+
 
 ### histogram
+
+The histogram shows the distribution of grade in each boro.
+
 ```{r}
 inspec_data %>%
   filter(grade %in% c("A", "B", "C"), !(boro == "Missing")) %>%
@@ -96,4 +107,4 @@ inspec_data %>%
   ) %>%
   layout(title = "Distribution of Grade by Boro")
 ```
-This histogram shows the distribution of grade in each boro.
+
